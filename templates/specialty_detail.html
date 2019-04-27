@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>高考通 - 规划你的未来 | 全国大学排名_大学专业介绍_高考志愿填报_学业百科</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css'%}">
+
+  <style type="text/css">
+  body {
+    background-color: #f3f3f3;
+  }
+  .footer.segment {
+    padding-top: 3em;
+    padding-bottom: 1em;
+  }
+  .ui.horizontal.middle.aligned.selection.relaxed.link.list a.item {
+    color: rgb(0,0,0);
+  }
+  .ui.secondary.pointing.menu {
+    margin-top: 5em;
+  }
+  .ui.inverted.menu .teal.active.item, .ui.inverted.teal.menu {
+    background-color: #000000ab;
+  } 
+  </style>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/semantic.min.js' %}"></script>
+</head>
+
+<body>
+
+  <div class="ui teal inverted borderless large top fixed menu">
+    <div class="ui container">
+      <div class="item">
+        <a href="{% url 'index' %}"><h1 style="color: white">高考通</h1></a>
+      </div>
+      <a class="item" href="{% url 'school' %}">高校库</a>
+      <a class="active item" href="{% url 'specialty' %}">专业库</a>
+      <a class="item" href="{% url 'lineprovince' %}">高考分数线</a>
+      <a class="item" href="{% url 'forecast' %}">志愿填报</a>
+    </div>
+  </div>
+
+  <div class="ui container">
+    <div class="ui huge grey secondary pointing menu">
+      <a class="active item" href="{% url 'specialty' %}">
+        专业大全
+      </a>
+      <a class="item" href="{% url 'specialty_school' %}">
+        根据专业找大学
+      </a>
+    </div>    
+  </div>
+
+  <div class="ui grid container" style="padding-top: 1em;">
+    <div class="eight wide column">
+      <h3 class="ui top attached center aligned header">
+        基本信息
+      </h3>
+      <div class="ui attached segment">
+        <p></p>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <h3 class="ui top attached center aligned header">
+        专业详解
+      </h3>
+      <div class="ui attached segment">
+        <div class="ui items">
+          <div class="item">
+            <div class="content">
+              <a class="header">是什么</a>
+              <div class="meta">
+                <span>哲学研习中西现代哲学、中西哲学史、伦理学、逻辑学、人类学等方面的基本理论和知识，以世界本原为探究对象，研究自然、社会和人类最普遍的问题，探索人的价值观、人生观和世界观的问题。例如：世界的本质是什么，人类应该怎样活着，人类如何看待死亡等。该专业侧重于学术方面，选择需谨慎。 关键词：马克思主义 三观 逻辑 伦理</span>
+              </div>
+              <div class="description">
+                <p></p>
+              </div>
+              <div class="extra">
+                额外的细节
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <a class="header">标题</a>
+              <div class="meta">
+                <span>描述</span>
+              </div>
+              <div class="description">
+                <p></p>
+              </div>
+              <div class="extra">
+                额外的细节
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <h3 class="ui top attached center aligned header">
+        就业行业分布
+      </h3>
+      <div class="ui attached segment">
+        <p></p>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <h3 class="ui top attached center aligned header">
+        就业岗位分布
+      </h3>
+      <div class="ui attached segment">
+        <p></p>
+      </div>
+    </div> 
+    <div class="eight wide column">
+      <h3 class="ui top attached center aligned header">
+        就业地区分布
+      </h3>
+      <div class="ui attached segment">
+        <p></p>
+      </div>
+    </div>  
+  </div>
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided grid">
+        <div class="row">
+          <div class="eleven wide column">
+            <h4 class="ui inverted header">高考通使用说明</h4>
+            <p>1、本查询系统的信息来源于各高校招生网对外公开的数据，高考通提供此信息之目的在于为高考生提供更多的信息作为参考,请综合各种信息进行报考</p>
+            <p>2、如对本系统有任何疑问请联系我们,联系方式:luoxinjia58@gmail.com</p>
+          </div>
+          <div class="five wide column">
+            <img class="ui small image" src="{% static 'images/e.jpg' %}" style="margin-left: 7em;">
+            <p style="margin-left: 7em;">扫描二维码关注我们</p>            
+          </div>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <div class="ui center aligned container">
+        <img class="ui avatar image" src="{% static 'images/logo.jpg' %}">
+        <span>© 2019 焦作一米粒有限公司</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
