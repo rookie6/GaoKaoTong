@@ -26,6 +26,7 @@ class SchoolInfo(models.Model):
     class Meta:
         verbose_name = "学校信息"
         verbose_name_plural = verbose_name
+        ordering = ['id']
 
     def __str__(self):
         return str(self.pk)
@@ -52,6 +53,7 @@ class SpecialtyInfo(models.Model):
     class Meta:
         verbose_name = '专业信息'
         verbose_name_plural = verbose_name
+        ordering = ['id']
 
     def __str__(self):
         return str(self.pk)
@@ -70,6 +72,7 @@ class LinePro(models.Model):
     class Meta:
         verbose_name = '省份录取分数线'
         verbose_name_plural = verbose_name
+        ordering = ['id']
 
     def __str__(self):
         return str(self.pk)
@@ -102,6 +105,7 @@ class LineSchool(models.Model):
     class Meta:
         verbose_name = '学校录取分数线'
         verbose_name_plural = verbose_name
+        ordering = ['id']
 
     def __str__(self):
         return str(self.pk)
@@ -138,6 +142,7 @@ class LineSpecialty(models.Model):
     class Meta:
         verbose_name = '专业录取分数线'
         verbose_name_plural = verbose_name
+        ordering = ['id']
 
     def __str__(self):
         return str(self.pk)
