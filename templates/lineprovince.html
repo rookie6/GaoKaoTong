@@ -70,80 +70,88 @@
   <div class="ui grid raised vertically divided container segment">
     <div class="row">
       <div class="column" style="margin-top: 2em;">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="pro">
           <div class="item"><h4 style="color: black;">所属地区</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">北京</a>
-          <a class="item" href="#">天津</a>
-          <a class="item" href="#">河北</a>
-          <a class="item" href="#">河南</a>
-          <a class="item" href="#">山东</a>
-          <a class="item" href="#">山西</a>
-          <a class="item" href="#">陕西</a>
-          <a class="item" href="#">内蒙古</a>
-          <a class="item" href="#">辽宁</a>
-          <a class="item" href="#">吉林</a>
-          <a class="item" href="#">黑龙江</a>
-          <a class="item" href="#">上海</a>
-          <a class="item" href="#">江苏</a>
-          <a class="item" href="#">安徽</a>
-          <a class="item" href="#">江西</a>
-          <a class="item" href="#">湖北</a>
-          <a class="item" href="#">湖南</a>
-          <a class="item" href="#">重庆</a>
-          <a class="item" href="#">四川</a> 
-          <a class="item" href="#">贵州</a>
-          <a class="item" href="#">云南</a>
-          <a class="item" href="#">广东</a>
-          <a class="item" href="#">广西</a>
-          <a class="item" href="#">福建</a>
-          <a class="item" href="#">甘肃</a>
-          <a class="item" href="#">宁夏</a>
-          <a class="item" href="#">新疆</a>
-          <a class="item" href="#">西藏</a>
-          <a class="item" href="#">海南</a>
-          <a class="item" href="#">浙江</a>
-          <a class="item" href="#">青海</a>
+          <a class="active item" href="?province=&batch={{ batch }}&type={{ type }}&year={{ year }}">全部</a>
+          <a class="item" href="?province=北京&batch={{ batch }}&type={{ type }}&year={{ year }}">北京</a>
+          <a class="item" href="?province=天津&batch={{ batch }}&type={{ type }}&year={{ year }}">天津</a>
+          <a class="item" href="?province=河北&batch={{ batch }}&type={{ type }}&year={{ year }}">河北</a>
+          <a class="item" href="?province=河南&batch={{ batch }}&type={{ type }}&year={{ year }}">河南</a>
+          <a class="item" href="?province=山东&batch={{ batch }}&type={{ type }}&year={{ year }}">山东</a>
+          <a class="item" href="?province=山西&batch={{ batch }}&type={{ type }}&year={{ year }}">山西</a>
+          <a class="item" href="?province=陕西&batch={{ batch }}&type={{ type }}&year={{ year }}">陕西</a>
+          <a class="item" href="?province=内蒙古&batch={{ batch }}&type={{ type }}&year={{ year }}">内蒙古</a>
+          <a class="item" href="?province=辽宁&batch={{ batch }}&type={{ type }}&year={{ year }}">辽宁</a>
+          <a class="item" href="?province=吉林&batch={{ batch }}&type={{ type }}&year={{ year }}">吉林</a>
+          <a class="item" href="?province=黑龙江&batch={{ batch }}&type={{ type }}&year={{ year }}">黑龙江</a>
+          <a class="item" href="?province=上海&batch={{ batch }}&type={{ type }}&year={{ year }}">上海</a>
+          <a class="item" href="?province=江苏&batch={{ batch }}&type={{ type }}&year={{ year }}">江苏</a>
+          <a class="item" href="?province=安徽&batch={{ batch }}&type={{ type }}&year={{ year }}">安徽</a>
+          <a class="item" href="?province=江西&batch={{ batch }}&type={{ type }}&year={{ year }}">江西</a>
+          <a class="item" href="?province=湖北&batch={{ batch }}&type={{ type }}&year={{ year }}">湖北</a>
+          <a class="item" href="?province=湖南&batch={{ batch }}&type={{ type }}&year={{ year }}">湖南</a>
+          <a class="item" href="?province=重庆&batch={{ batch }}&type={{ type }}&year={{ year }}">重庆</a>
+          <a class="item" href="?province=四川&batch={{ batch }}&type={{ type }}&year={{ year }}">四川</a>
+          <a class="item" href="?province=贵州&batch={{ batch }}&type={{ type }}&year={{ year }}">贵州</a>
+          <a class="item" href="?province=云南&batch={{ batch }}&type={{ type }}&year={{ year }}">云南</a>
+          <a class="item" href="?province=广东&batch={{ batch }}&type={{ type }}&year={{ year }}">广东</a>
+          <a class="item" href="?province=广西&batch={{ batch }}&type={{ type }}&year={{ year }}">广西</a>
+          <a class="item" href="?province=福建&batch={{ batch }}&type={{ type }}&year={{ year }}">福建</a>
+          <a class="item" href="?province=甘肃&batch={{ batch }}&type={{ type }}&year={{ year }}">甘肃</a>
+          <a class="item" href="?province=宁夏&batch={{ batch }}&type={{ type }}&year={{ year }}">宁夏</a>
+          <a class="item" href="?province=新疆&batch={{ batch }}&type={{ type }}&year={{ year }}">新疆</a>
+          <a class="item" href="?province=西藏&batch={{ batch }}&type={{ type }}&year={{ year }}">西藏</a>
+          <a class="item" href="?province=海南&batch={{ batch }}&type={{ type }}&year={{ year }}">海南</a>
+          <a class="item" href="?province=浙江&batch={{ batch }}&type={{ type }}&year={{ year }}">浙江</a>
+          <a class="item" href="?province=青海&batch={{ batch }}&type={{ type }}&year={{ year }}">青海</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="batch">
           <div class="item"><h4 style="color: black;">录取批次</h4></div>
-          <a class="active item" href="#">全部</a>
-          <a class="item" href="#">本科一批</a>
-          <a class="item" href="#">本科二批</a>
+          <a class="active item" href="?province={{ province }}&batch=&type={{ type }}&year={{ year }}">全部</a>
+          <a class="item" href="?province={{ province }}&batch=本科一批&type={{ type }}&year={{ year }}">本科一批</a>
+          <a class="item" href="?province={{ province }}&batch=本科二批&type={{ type }}&year={{ year }}">本科二批</a>
+          <a class="item" href="?province={{ province }}&batch=本科三批&type={{ type }}&year={{ year }}">本科三批</a>
+          <a class="item" href="?province={{ province }}&batch=专科一批&type={{ type }}&year={{ year }}">专科一批</a>
+          <a class="item" href="?province={{ province }}&batch=专科二批&type={{ type }}&year={{ year }}">专科二批</a>
+          <a class="item" href="?province={{ province }}&batch=本科批&type={{ type }}&year={{ year }}">本科批</a>
+          <a class="item" href="?province={{ province }}&batch=专科批&type={{ type }}&year={{ year }}">专科批</a>
+          <a class="item" href="?province={{ province }}&batch=平行录取一段&type={{ type }}&year={{ year }}">平行录取一段</a>
+          <a class="item" href="?province={{ province }}&batch=平行录取二段&type={{ type }}&year={{ year }}">平行录取二段</a>
+          <a class="item" href="?province={{ province }}&batch=平行录取三段&type={{ type }}&year={{ year }}">平行录取三段</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="type">
           <div class="item"><h4 style="color: black;">考生类别</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">文科</a>
-          <a class="item" href="#">理科</a>
-          <a class="item" href="#">综合</a>          
+          <a class="active item" href="?province={{ province }}&batch={{ batch }}&type=&year={{ year }}">全部</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type=文科&year={{ year }}">文科</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type=理科&year={{ year }}">理科</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type=综合&year={{ year }}">综合</a>
         </div>
       </div>
     </div>   
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="year">
           <div class="item"><h4 style="color: black;">录取年份</h4></div>
-          <a class="active item" href="#">全部</a>
-          <a class="item" href="#">2017</a>
-          <a class="item" href="#">2016</a>
-          <a class="item" href="#">2015</a>
-          <a class="item" href="#">2014</a>
+          <a class="active item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year=">全部</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year=2018">2018</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year=2017">2017</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year=2016">2016</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year=2015">2015</a>
+          <a class="item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year=2014">2014</a>
         </div>
       </div>
     </div>
-
 
 
     <div class="row">
@@ -159,41 +167,32 @@
             </tr>
           </thead>
           <tbody>
+          {% for i in linpro1 %}
             <tr>
-              <td >湖南</td>
-              <td>2018</td>
-              <td>理科</td>
-              <td>本科一批</td>
-              <td>530</td>
+              <td >{{ i.province }}</td>
+              <td>{{ i.year }}</td>
+              <td>{{ i.type }}</td>
+              <td>{{ i.batch }}</td>
+              <td>{{ i.proscore }}</td>
             </tr>
-            <tr>
-              <td >湖南</td>
-              <td>2018</td>
-              <td>理科</td>
-              <td>本科一批</td>
-              <td>530</td>
-            </tr>
-            <tr>
-              <td >湖南</td>
-              <td>2018</td>
-              <td>理科</td>
-              <td>本科一批</td>
-              <td>530</td>
-            </tr>
+          {% endfor %}
           </tbody>
           <tfoot>
             <tr><th colspan="5">
               <div class="ui right floated pagination menu">
-                <a class="icon item">
+                  {% if linpro1.has_previous %}
+                <a class="icon item" href="?page={{ linpro1.previous_page_number }}&year={{ year }}">
                   <i class="left chevron icon"></i>
                 </a>
-                <a class="item">1</a>
-                <a class="item">2</a>
-                <a class="item">3</a>
-                <a class="item">4</a>
-                <a class="icon item">
+                  {% endif %}
+                <a class="item">{{ linpro1.number }}</a>
+                <a class="item">...</a>
+                <a class="item">{{ linpro1.paginator.num_pages }}</a>
+                   {% if linpro1.has_next %}
+                <a class="icon item" href="?page={{ linpro1.next_page_number }}&year={{ year }}">
                   <i class="right chevron icon"></i>
                 </a>
+                   {% endif %}
               </div>
             </th>
           </tr></tfoot>
@@ -225,19 +224,36 @@
     </div>
   </div>
   <script>
-    $(document)
-      .ready(function() {
-        $('.ui.link.list a.item')
-          .on('click', function() {
-            $(this)
-              .addClass('active')
-              .siblings()
-              .removeClass('active')
-            ;
-          })
-        ;
-      })
-    ;
+    $(document).ready(function(){
+            $("#pro a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#pro a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#batch a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#batch a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#type a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#type a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#year a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#year a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+        });
   </script>
 </body>
 
