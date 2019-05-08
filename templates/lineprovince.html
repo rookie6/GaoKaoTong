@@ -153,7 +153,6 @@
       </div>
     </div>
 
-
     <div class="row">
       <div class="column">
         <table class="ui large single line selectable black table">
@@ -175,6 +174,8 @@
               <td>{{ i.batch }}</td>
               <td>{{ i.proscore }}</td>
             </tr>
+          {% empty %}
+            <div class="row"><h3 >抱歉哦亲暂无该数据！</h3></div>
           {% endfor %}
           </tbody>
           <tfoot>
@@ -197,7 +198,7 @@
             </th>
           </tr></tfoot>
         </table>
-      </div>     
+      </div>
     </div>
   </div>
 
