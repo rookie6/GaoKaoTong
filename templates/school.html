@@ -54,14 +54,18 @@
   <div class="ui grid raised container segment">
     <div class="row" style="padding-bottom: 0em;padding-top: 0px;">
       <div class="column">
-        <form class="ui form">
+        <form class="ui form" action="{% url 'school' %}" method="get">
           <div class="fields">
             <div class="seven wide field">
               <div class="ui icon input">
-                <input type="text" placeholder="搜索大学">
+                {% if school_name %}
+                <input type="text" placeholder="{{ school_name }}" name="school_name">
+                {% else %}
+                <input type="text" placeholder="搜索大学" name="school_name">
+                {% endif %}
               </div>               
             </div>
-            <div class="ui red submit button">查询</div>           
+            <div class="ui red submit button">查询</div>
           </div>
         </form>
       </div>
@@ -71,89 +75,92 @@
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="pro">
           <div class="item"><h4 style="color: black;">所属地区</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">北京</a>
-          <a class="item" href="#">天津</a>
-          <a class="item" href="#">河北</a>
-          <a class="item" href="#">河南</a>
-          <a class="item" href="#">山东</a>
-          <a class="item" href="#">山西</a>
-          <a class="item" href="#">陕西</a>
-          <a class="item" href="#">内蒙古</a>
-          <a class="item" href="#">辽宁</a>
-          <a class="item" href="#">吉林</a>
-          <a class="item" href="#">黑龙江</a>
-          <a class="item" href="#">上海</a>
-          <a class="item" href="#">江苏</a>
-          <a class="item" href="#">安徽</a>
-          <a class="item" href="#">江西</a>
-          <a class="item" href="#">湖北</a>
-          <a class="item" href="#">湖南</a>
-          <a class="item" href="#">重庆</a>
-          <a class="item" href="#">四川</a> 
-          <a class="item" href="#">贵州</a>
-          <a class="item" href="#">云南</a>
-          <a class="item" href="#">广东</a>
-          <a class="item" href="#">广西</a>
-          <a class="item" href="#">福建</a>
-          <a class="item" href="#">甘肃</a>
-          <a class="item" href="#">宁夏</a>
-          <a class="item" href="#">新疆</a>
-          <a class="item" href="#">西藏</a>
-          <a class="item" href="#">海南</a>
-          <a class="item" href="#">浙江</a>
-          <a class="item" href="#">青海</a>
+          <a class="active item" href="?province_name=&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">全部</a>
+          <a class="item" href="?province_name=北京&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">北京</a>
+          <a class="item" href="?province_name=天津&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">天津</a>
+          <a class="item" href="?province_name=河北&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">河北</a>
+          <a class="item" href="?province_name=河南&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">河南</a>
+          <a class="item" href="?province_name=山东&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">山东</a>
+          <a class="item" href="?province_name=山西&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">山西</a>
+          <a class="item" href="?province_name=陕西&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">陕西</a>
+          <a class="item" href="?province_name=内蒙古&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">内蒙古</a>
+          <a class="item" href="?province_name=辽宁&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">辽宁</a>
+          <a class="item" href="?province_name=吉林&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">吉林</a>
+          <a class="item" href="?province_name=黑龙江&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">黑龙江</a>
+          <a class="item" href="?province_name=上海&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">上海</a>
+          <a class="item" href="?province_name=江苏&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">江苏</a>
+          <a class="item" href="?province_name=安徽&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">安徽</a>
+          <a class="item" href="?province_name=江西&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">江西</a>
+          <a class="item" href="?province_name=湖北&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">湖北</a>
+          <a class="item" href="?province_name=湖南&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">湖南</a>
+          <a class="item" href="?province_name=重庆&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">重庆</a>
+          <a class="item" href="?province_name=四川&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">四川</a>
+          <a class="item" href="?province_name=贵州&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">贵州</a>
+          <a class="item" href="?province_name=云南&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">云南</a>
+          <a class="item" href="?province_name=广东&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">广东</a>
+          <a class="item" href="?province_name=广西&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">广西</a>
+          <a class="item" href="?province_name=福建&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">福建</a>
+          <a class="item" href="?province_name=甘肃&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">甘肃</a>
+          <a class="item" href="?province_name=宁夏&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">宁夏</a>
+          <a class="item" href="?province_name=新疆&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">新疆</a>
+          <a class="item" href="?province_name=西藏&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">西藏</a>
+          <a class="item" href="?province_name=海南&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">海南</a>
+          <a class="item" href="?province_name=浙江&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">浙江</a>
+          <a class="item" href="?province_name=青海&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">青海</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="type">
           <div class="item"><h4 style="color: black;">院校类型</h4></div>
-          <a class="active item" href="#">全部</a>
-          <a class="item" href="#">综合</a>
-          <a class="item" href="#">理工</a>
-          <a class="item" href="#">农林</a>
-          <a class="item" href="#">医药</a>
-          <a class="item" href="#">师范</a>
-          <a class="item" href="#">语言</a>
-          <a class="item" href="#">财经</a>
-          <a class="item" href="#">政法</a>
-          <a class="item" href="#">体育</a>
-          <a class="item" href="#">艺术</a>
-          <a class="item" href="#">民族</a>
-          <a class="item" href="#">军事</a>
-          <a class="item" href="#">其他</a>
+          <a class="active item" href="?province_name={{ province_name }}&type_name=&school_type={{ school_type }}&college={{ college }}">全部</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=综合类&school_type={{ school_type }}&college={{ college }}">综合类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=理工类&school_type={{ school_type }}&college={{ college }}">理工类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=农林类&school_type={{ school_type }}&college={{ college }}">农林类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=医药类&school_type={{ school_type }}&college={{ college }}">医药类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=师范类&school_type={{ school_type }}&college={{ college }}">师范类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=语言类&school_type={{ school_type }}&college={{ college }}">语言类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=财经类&school_type={{ school_type }}&college={{ college }}">财经类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=政法类&school_type={{ school_type }}&college={{ college }}">政法类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=体育类&school_type={{ school_type }}&college={{ college }}">体育类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=艺术类&school_type={{ school_type }}&college={{ college }}">艺术类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=民族类&school_type={{ school_type }}&college={{ college }}">民族类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=军事类&school_type={{ school_type }}&college={{ college }}">军事类</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name=其他类&school_type={{ school_type }}&college={{ college }}">其他类</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="stype">
           <div class="item"><h4 style="color: black;">办学类型</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">普通本科</a>
-          <a class="item" href="#">其他</a>
+          <a class="active item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type=&college={{ college }}">全部</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type=普通本科&college={{ college }}">普通本科</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type=独立学院&college={{ college }}">独立学院</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type=专科(高职)&college={{ college }}">专科(高职)</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type=中外合作办学&college={{ college }}">中外合作办学</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type=其他&college={{ college }}">其他</a>
         </div>
       </div>
     </div>   
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="college">
           <div class="item"><h4 style="color: black;">高校层次</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">985工程</a>
-          <a class="item" href="#">211工程</a>
-          <a class="item" href="#">一流大学建设高校</a>
-          <a class="item" href="#">一流学科建设高校</a>
-          <a class="item" href="#">教育部直属</a>
-          <a class="item" href="#">中央部委</a>
-          <a class="item" href="#">自主招生试点</a>
+          <a class="active item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=">全部</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=985工程">985工程</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=211工程">211工程</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=一流大学建设高校">一流大学建设高校</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=一流学科建设高校">一流学科建设高校</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=教育部直属">教育部直属</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=中央部委">中央部委</a>
+          <a class="item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college=自主招生试点">自主招生试点</a>
         </div>
       </div>
     </div>
@@ -167,7 +174,7 @@
             共匹配学校
           </div>
           <div class="value">
-            22
+            {{ count }}
           </div>            
         </div>         
       </div>
@@ -185,53 +192,50 @@
             </tr>
           </thead>
           <tbody>
+          {% for i in schoolinfo1 %}
             <tr >
               <td>
                 <h2 class="ui image header">
                 <img src="{% static 'images/307.jpg' %}" class="ui massive rounded image">
-                <div class="content"><a class="ui header" href="#"><h3>清华大学</h3></a>
-                  <div class="sub header"><h4>北京</h4></div>
+                <div class="content"><a class="ui header" href=""><h3>{{ i.school_name }}</h3></a>
+                  <div class="sub header"><h4>{{ i.province_name }}</h4></div>
                 </div>
                 </h2>
               </td>
+                {% if i.school_type == '6000' %}
               <td>普通本科</td>
+                {% elif i.school_type == '6001' %}
+              <td>独立学院</td>
+                {% elif i.school_type == '6002' %}
+              <td>专科(高职)</td>
+                {% elif i.school_type == '6003' %}
+              <td>中外合作办学</td>
+                {% elif i.school_type == '6007' %}
+              <td>其他</td>
+                {% endif %}
               <td>理工类40</td>     
               <td>
                 <a href="{% url 'school_compare' %}"><button class="ui primary button">加入对比</button></a>
               </td>                                         
             </tr>
-            <tr>
-              <td>
-                <h2 class="ui image header">
-                <img src="{% static 'images/307.jpg' %}" class="ui massive rounded image">
-                <div class="content"><a class="ui header" href="#"><h3>清华大学</h3></a>
-                  <div class="sub header"><h4>北京</h4></div>
-                </div>
-                </h2>
-              </td>
-              <td>普通本科</td>
-              <td>理工类1</td>     
-              <td>
-                <div class="ui animated primary fade button" tabindex="0">
-                  <div class="visible content">加入对比</div>
-                  <div class="hidden content"><i class="check icon"></i></div>
-                </div>
-              </td>                                         
-            </tr>
+          {% endfor %}
           </tbody>
           <tfoot>
             <tr><th colspan="4">
               <div class="ui right floated pagination menu">
-                <a class="icon item">
+                  {% if schoolinfo1.has_previous %}
+                <a class="icon item" href="?page={{ schoolinfo1.previous_page_number }}&province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">
                   <i class="left chevron icon"></i>
                 </a>
-                <a class="item">1</a>
-                <a class="item">2</a>
-                <a class="item">3</a>
-                <a class="item">4</a>
-                <a class="icon item">
+                  {% endif %}
+                <a class="item">{{ schoolinfo1.number }}</a>
+                <a class="item">...</a>
+                <a class="item">{{ schoolinfo1.paginator.num_pages }}</a>
+                   {% if schoolinfo1.has_next %}
+                <a class="icon item" href="?page={{ schoolinfo1.next_page_number }}&province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">
                   <i class="right chevron icon"></i>
                 </a>
+                   {% endif %}
               </div>
             </th>
           </tr></tfoot>
@@ -264,19 +268,36 @@
     </div>
   </div>
   <script>
-    $(document)
-      .ready(function() {
-        $('.ui.link.list a.item')
-          .on('click', function() {
-            $(this)
-              .addClass('active')
-              .siblings()
-              .removeClass('active')
-            ;
-          })
-        ;
-      })
-    ;
+    $(document).ready(function(){
+            $("#pro a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#pro a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#type a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#type a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#stype a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#stype a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#college a").each(function(){
+                $this = $(this);
+                if($this[0].href==String(window.location)){
+                    $("#college a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+        });
   </script>
 </body>
 
