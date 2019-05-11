@@ -72,14 +72,18 @@
 
     <div class="row" style="margin-top: 1em;padding-bottom: 0em;">
       <div class="column">
-        <form class="ui form">
+        <form class="ui form" id="cform" action="{% url 'lineschool' %}" method="get">
           <div class="fields">
             <div class="seven wide field">
               <div class="ui icon input">
-                <input type="text" placeholder="搜索大学">
+                {% if school_name %}
+                <input type="text" placeholder="{{ school_name }}" name="school_name">
+                {% else %}
+                <input type="text" placeholder="搜索大学" name="school_name">
+                {% endif %}
               </div>               
             </div>
-            <div class="ui red submit button">查询</div>           
+            <div class="ui red submit button" onclick="document:cform.submit()">查询</div>
           </div>
         </form>
       </div>
@@ -89,128 +93,149 @@
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="pro">
           <div class="item"><h4 style="color: black;">所属地区</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">北京</a>
-          <a class="item" href="#">天津</a>
-          <a class="item" href="#">河北</a>
-          <a class="item" href="#">河南</a>
-          <a class="item" href="#">山东</a>
-          <a class="item" href="#">山西</a>
-          <a class="item" href="#">陕西</a>
-          <a class="item" href="#">内蒙古</a>
-          <a class="item" href="#">辽宁</a>
-          <a class="item" href="#">吉林</a>
-          <a class="item" href="#">黑龙江</a>
-          <a class="item" href="#">上海</a>
-          <a class="item" href="#">江苏</a>
-          <a class="item" href="#">安徽</a>
-          <a class="item" href="#">江西</a>
-          <a class="item" href="#">湖北</a>
-          <a class="item" href="#">湖南</a>
-          <a class="item" href="#">重庆</a>
-          <a class="item" href="#">四川</a> 
-          <a class="item" href="#">贵州</a>
-          <a class="item" href="#">云南</a>
-          <a class="item" href="#">广东</a>
-          <a class="item" href="#">广西</a>
-          <a class="item" href="#">福建</a>
-          <a class="item" href="#">甘肃</a>
-          <a class="item" href="#">宁夏</a>
-          <a class="item" href="#">新疆</a>
-          <a class="item" href="#">西藏</a>
-          <a class="item" href="#">海南</a>
-          <a class="item" href="#">浙江</a>
-          <a class="item" href="#">青海</a>
+          <a class="active item" href="?school_name={{ school_name }}&province_name=&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">全部</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=北京&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">北京</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=天津&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">天津</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=河北&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">河北</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=河南&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">河南</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=山东&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">山东</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=山西&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">山西</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=陕西&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">陕西</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=内蒙古&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">内蒙古</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=辽宁&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">辽宁</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=吉林&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">吉林</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=黑龙江&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">黑龙江</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=上海&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">上海</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=江苏&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">江苏</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=安徽&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">安徽</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=江西&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">江西</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=湖北&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">湖北</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=湖南&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">湖南</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=重庆&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">重庆</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=四川&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">四川</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=贵州&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">贵州</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=云南&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">云南</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=广东&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">广东</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=广西&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">广西</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=福建&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">福建</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=甘肃&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">甘肃</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=宁夏&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">宁夏</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=新疆&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">新疆</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=西藏&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">西藏</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=海南&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">海南</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=浙江&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">浙江</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name=青海&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">青海</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="batch">
           <div class="item"><h4 style="color: black;">录取批次</h4></div>
-          <a class="active item" href="#">全部</a>
-          <a class="item" href="#">本科提前批</a>          
-          <a class="item" href="#">本科一批</a>
-          <a class="item" href="#">本科二批</a>
-          <a class="item" href="#">国家专项计划本科批</a>
-          <a class="item" href="#">地方专项计划本科批</a>                    
+          <a class="active item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">全部</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=本科提前批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">本科提前批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=本科一批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">本科一批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=本科二批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">本科二批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=本科三批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">本科三批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=普通类提前批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">普通类提前批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=专科提前批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">专科提前批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=国家专项计划本科批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">国家专项计划本科批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=地方专项计划本科批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">地方专项计划本科批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=地方专项计划本科一批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">地方专项计划本科一批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=平行录取一段&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">平行录取一段</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=平行录取二段&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">平行录取二段</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=平行录取三段&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">平行录取三段</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=本科批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">本科批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=专科批&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">专科批</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch=无批次&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">无批次</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="type">
           <div class="item"><h4 style="color: black;">考生类别</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">文科</a>
-          <a class="item" href="#">理科</a>
-          <a class="item" href="#">综合</a>          
+          <a class="active item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">全部</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=文科&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">文科</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=理科&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">理科</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=综合&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">综合</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=艺术文&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">艺术文</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=艺术理&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">艺术理</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=艺术类&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">艺术类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=体育类&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">体育类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=蒙授文科&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">蒙授文科</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=蒙授理科&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">蒙授理科</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=体育文&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">体育文</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type=体育理&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">体育理</a>
         </div>
       </div>
     </div>   
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="year">
           <div class="item"><h4 style="color: black;">录取年份</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">2017</a>
-          <a class="item" href="#">2016</a>
-          <a class="item" href="#">2015</a>
-          <a class="item" href="#">2014</a>
+          <a class="active item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year=&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">全部</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year=2018&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">2018</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year=2017&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">2017</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year=2016&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">2016</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year=2015&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}">2015</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="tyn">
           <div class="item"><h4 style="color: black;">院校类型</h4></div>
-          <a class="active item" href="#">全部</a>
-          <a class="item" href="#">综合</a>
-          <a class="item" href="#">理工</a>
-          <a class="item" href="#">农林</a>
-          <a class="item" href="#">医药</a>
-          <a class="item" href="#">师范</a>
-          <a class="item" href="#">语言</a>
-          <a class="item" href="#">财经</a>
-          <a class="item" href="#">政法</a>
-          <a class="item" href="#">体育</a>
-          <a class="item" href="#">艺术</a>
-          <a class="item" href="#">民族</a>
-          <a class="item" href="#">军事</a>
-          <a class="item" href="#">其他</a>
+          <a class="active item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=&college={{ college }}&school_type={{ school_type }}">全部</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=综合类&college={{ college }}&school_type={{ school_type }}">综合类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=理工类&college={{ college }}&school_type={{ school_type }}">理工类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=农林类&college={{ college }}&school_type={{ school_type }}">农林类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=医药类&college={{ college }}&school_type={{ school_type }}">医药类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=师范类&college={{ college }}&school_type={{ school_type }}">师范类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=语言类&college={{ college }}&school_type={{ school_type }}">语言类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=财经类&college={{ college }}&school_type={{ school_type }}">财经类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=政法类&college={{ college }}&school_type={{ school_type }}">政法类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=体育类&college={{ college }}&school_type={{ school_type }}">体育类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=艺术类&college={{ college }}&school_type={{ school_type }}">艺术类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=民族类&college={{ college }}&school_type={{ school_type }}">民族类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=军事类&college={{ college }}&school_type={{ school_type }}">军事类</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name=其他类&college={{ college }}&school_type={{ school_type }}">其他类</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="col">
           <div class="item"><h4 style="color: black;">高校层次</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">985工程</a>
-          <a class="item" href="#">211工程</a>
-          <a class="item" href="#">一流大学建设高校</a>
-          <a class="item" href="#">一流学科建设高校</a>
-          <a class="item" href="#">教育部直属</a>
-          <a class="item" href="#">中央部委</a>
-          <a class="item" href="#">自主招生试点</a>
+          <a class="active item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=&school_type={{ school_type }}">全部</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=985工程&school_type={{ school_type }}">985工程</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=211工程&school_type={{ school_type }}">211工程</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=一流大学建设高校&school_type={{ school_type }}">一流大学建设高校</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=一流学科建设高校&school_type={{ school_type }}">一流学科建设高校</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=教育部直属&school_type={{ school_type }}">教育部直属</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=中央部委&school_type={{ school_type }}">中央部委</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college=自主招生试点&school_type={{ school_type }}">自主招生试点</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="stype">
           <div class="item"><h4 style="color: black;">办学类型</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">普通本科</a>
-          <a class="item" href="#">其他</a>
+          <a class="active item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type=">全部</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type=普通本科">普通本科</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type=独立学院">独立学院</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type=专科(高职)">专科(高职)</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type=中外合作办学">中外合作办学</a>
+          <a class="item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type=其他">其他</a>
         </div>
       </div>
     </div>           
@@ -234,59 +259,40 @@
             </tr>
           </thead>
           <tbody>
+          {% for i in linsch1 %}
             <tr>
-              <td >河南理工大学</td>
-              <td>河南</td>
-              <td>理科</td>
-              <td>2018</td>
-              <td>本科一批</td>
-              <td>520</td>
-              <td>530</td>
-              <td>530</td>
+              <td >{{ i.school_name }}</td>
+              <td>{{ i.local_province_name }}</td>
+              <td>{{ i.type }}</td>
+              <td>{{ i.year }}</td>
+              <td>{{ i.batch }}</td>
+              <td>{{ i.average }}</td>
+              <td>{{ i.min_score }}</td>
+              <td>{{ i.proscore }}</td>
               <td>
                 <div class="ui primary button">加入对比</div>
               </td>
             </tr>
-            <tr>
-              <td >河南理工大学</td>
-              <td>河南</td>
-              <td>理科</td>
-              <td>2018</td>
-              <td>本科一批</td>
-              <td>520</td>
-              <td>530</td>
-              <td>530</td>
-              <td>
-                <div class="ui primary button">加入对比</div>
-              </td>
-            </tr>
-            <tr>
-              <td >河南理工大学</td>
-              <td>河南</td>
-              <td>理科</td>
-              <td>2018</td>
-              <td>本科一批</td>
-              <td>520</td>
-              <td>530</td>
-              <td>530</td>
-              <td>
-                <div class="ui primary button">加入对比</div>
-              </td>
-            </tr>          
+          {% empty %}
+            <div class="row"><h3 >抱歉哦亲暂无该数据！</h3></div>
+          {% endfor %}
           </tbody>
           <tfoot>
             <tr><th colspan="9">
               <div class="ui right floated pagination menu">
-                <a class="icon item">
+                  {% if linsch1.has_previous %}
+                <a class="icon item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}&page={{ linsch1.previous_page_number }}">
                   <i class="left chevron icon"></i>
                 </a>
-                <a class="item">1</a>
-                <a class="item">2</a>
-                <a class="item">3</a>
-                <a class="item">4</a>
-                <a class="icon item">
+                  {% endif %}
+                <a class="item">{{ linsch1.number }}</a>
+                <a class="item">...</a>
+                <a class="item">{{ linsch1.paginator.num_pages }}</a>
+                   {% if linsch1.has_next %}
+                <a class="icon item" href="?school_name={{ school_name }}&province_name={{ province_name }}&batch={{ batch }}&type={{ type }}&year={{ year }}&type_name={{ type_name }}&college={{ college }}&school_type={{ school_type }}&page={{ linsch1.next_page_number }}">
                   <i class="right chevron icon"></i>
                 </a>
+                   {% endif %}
               </div>
             </th>
           </tr></tfoot>
@@ -318,19 +324,58 @@
     </div>
   </div>
   <script>
-    $(document)
-      .ready(function() {
-        $('.ui.link.list a.item')
-          .on('click', function() {
-            $(this)
-              .addClass('active')
-              .siblings()
-              .removeClass('active')
-            ;
-          })
-        ;
-      })
-    ;
+    $(document).ready(function(){
+        var url = window.location.search.split("&page")[0];
+            $("#pro a").each(function(){
+                $this = $(this);
+                if($this[0].href==window.location.origin+window.location.pathname+url){
+                    $("#pro a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#batch a").each(function(){
+                $this = $(this);
+                if($this[0].href==window.location.origin+window.location.pathname+url){
+                    $("#batch a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#type a").each(function(){
+                $this = $(this);
+                if($this[0].href== window.location.origin+window.location.pathname+url){
+                    $("#type a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#year a").each(function(){
+                $this = $(this);
+                if($this[0].href== window.location.origin+window.location.pathname+url){
+                    $("#year a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#tyn a").each(function(){
+                $this = $(this);
+                if($this[0].href== window.location.origin+window.location.pathname+url){
+                    $("#tyn a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#col a").each(function(){
+                $this = $(this);
+                if($this[0].href== window.location.origin+window.location.pathname+url){
+                    $("#col a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#stype a").each(function(){
+                $this = $(this);
+                if($this[0].href== window.location.origin+window.location.pathname+url){
+                    $("#stype a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+        });
   </script>
 </body>
 
