@@ -182,7 +182,7 @@
             <tr><th colspan="5">
               <div class="ui right floated pagination menu">
                   {% if linpro1.has_previous %}
-                <a class="icon item" href="?page={{ linpro1.previous_page_number }}&year={{ year }}">
+                <a class="icon item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year={{ year }}&page={{ linpro1.previous_page_number }}">
                   <i class="left chevron icon"></i>
                 </a>
                   {% endif %}
@@ -190,7 +190,7 @@
                 <a class="item">...</a>
                 <a class="item">{{ linpro1.paginator.num_pages }}</a>
                    {% if linpro1.has_next %}
-                <a class="icon item" href="?page={{ linpro1.next_page_number }}&year={{ year }}">
+                <a class="icon item" href="?province={{ province }}&batch={{ batch }}&type={{ type }}&year={{ year }}&page={{ linpro1.next_page_number }}">
                   <i class="right chevron icon"></i>
                 </a>
                    {% endif %}
@@ -226,30 +226,31 @@
   </div>
   <script>
     $(document).ready(function(){
+        var url = window.location.search.split("&page")[0];
             $("#pro a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
+                if($this[0].href == window.location.origin+window.location.pathname+url){
                     $("#pro a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
             });
             $("#batch a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
+                if($this[0].href == window.location.origin+window.location.pathname+url){
                     $("#batch a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
             });
             $("#type a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
+                if($this[0].href == window.location.origin+window.location.pathname+url){
                     $("#type a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
             });
             $("#year a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
+                if($this[0].href == window.location.origin+window.location.pathname+url){
                     $("#year a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
