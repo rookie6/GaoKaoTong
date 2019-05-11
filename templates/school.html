@@ -54,7 +54,7 @@
   <div class="ui grid raised container segment">
     <div class="row" style="padding-bottom: 0em;padding-top: 0px;">
       <div class="column">
-        <form class="ui form" action="{% url 'school' %}" method="get">
+        <form class="ui form" action="{% url 'school' %}" method="get" id="cform">
           <div class="fields">
             <div class="seven wide field">
               <div class="ui icon input">
@@ -65,7 +65,7 @@
                 {% endif %}
               </div>               
             </div>
-            <div class="ui red submit button">查询</div>
+            <div class="ui red submit button" onclick="document:cform.submit()">查询</div>
           </div>
         </form>
       </div>
@@ -77,7 +77,7 @@
       <div class="column">
         <div class="ui horizontal middle aligned selection relaxed link list" id="pro">
           <div class="item"><h4 style="color: black;">所属地区</h4></div>
-          <a class="active item" href="?province_name=&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">全部</a>
+          <a class="active item" href="?province_name=&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">全部</a>
           <a class="item" href="?province_name=北京&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">北京</a>
           <a class="item" href="?province_name=天津&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">天津</a>
           <a class="item" href="?province_name=河北&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">河北</a>
@@ -115,7 +115,7 @@
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list" id="type">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="types">
           <div class="item"><h4 style="color: black;">院校类型</h4></div>
           <a class="active item" href="?province_name={{ province_name }}&type_name=&school_type={{ school_type }}&college={{ college }}">全部</a>
           <a class="item" href="?province_name={{ province_name }}&type_name=综合类&school_type={{ school_type }}&college={{ college }}">综合类</a>
@@ -224,7 +224,7 @@
             <tr><th colspan="4">
               <div class="ui right floated pagination menu">
                   {% if schoolinfo1.has_previous %}
-                <a class="icon item" href="?page={{ schoolinfo1.previous_page_number }}&province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">
+                <a class="icon item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}&page={{ schoolinfo1.previous_page_number }}">
                   <i class="left chevron icon"></i>
                 </a>
                   {% endif %}
@@ -232,7 +232,7 @@
                 <a class="item">...</a>
                 <a class="item">{{ schoolinfo1.paginator.num_pages }}</a>
                    {% if schoolinfo1.has_next %}
-                <a class="icon item" href="?page={{ schoolinfo1.next_page_number }}&province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}">
+                <a class="icon item" href="?province_name={{ province_name }}&type_name={{ type_name }}&school_type={{ school_type }}&college={{ college }}&page={{ schoolinfo1.next_page_number }}">
                   <i class="right chevron icon"></i>
                 </a>
                    {% endif %}
@@ -269,35 +269,39 @@
   </div>
   <script>
     $(document).ready(function(){
+        var url = window.location.search.split("&page")[0];
             $("#pro a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
+                if($this[0].href==window.location.origin+window.location.pathname+url){
                     $("#pro a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
             });
-            $("#type a").each(function(){
+            $("#types a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
-                    $("#type a").removeClass("active");
+                if($this[0].href==window.location.origin+window.location.pathname+url){
+                    $("#types a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
             });
             $("#stype a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
+                if($this[0].href== window.location.origin+window.location.pathname+url){
                     $("#stype a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
             });
             $("#college a").each(function(){
                 $this = $(this);
-                if($this[0].href==String(window.location)){
+                if($this[0].href== window.location.origin+window.location.pathname+url){
                     $("#college a").removeClass("active");
                     $(this).addClass("active");  //active表示被选中效果的类名
                 }
             });
         });
+  </script>
+  <script>
+
   </script>
 </body>
 

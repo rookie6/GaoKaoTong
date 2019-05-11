@@ -5,6 +5,7 @@ from org.views import *
 urlpatterns = [
     path('', index, name='index'),
     path('school/', school, name='school'),
+    # path('school/', ajax_get, name='school'),
     path('specialty/', specialty, name='specialty'),
     path('specialty_school/', specialty_school, name='specialty_school'),
     path('lineprovince/', lineprovince, name='lineprovince'),
