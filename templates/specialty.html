@@ -68,14 +68,18 @@
   <div class="ui grid raised container segment">
     <div class="row" style="margin-top: 1em;padding-bottom: 0em;">
       <div class="column">
-        <form class="ui form">
+        <form class="ui form" id="cform" method="get" action="{% url 'specialty' %}">
           <div class="fields">
             <div class="seven wide field">
               <div class="ui icon input">
-                <input type="text" placeholder="搜索专业">
-              </div>               
+                {% if sp_name %}
+                <input type="text" placeholder="{{ sp_name }}" name="sp_name">
+                {% else %}
+                <input type="text" placeholder="搜索专业" name="sp_name">
+                {% endif %}
+              </div>
             </div>
-            <div class="ui red submit button">查询</div>           
+            <div class="ui red submit button" onclick="document:cform.submit()">查询</div>
           </div>
         </form>
       </div>
@@ -85,21 +89,50 @@
 
     <div class="row">
       <div class="column">
-        <div class="ui horizontal middle aligned selection relaxed link list">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="le1">
+          <div class="item"><h4 style="color: black;">专业层次</h4></div>
+          <a class="active item" href="?level1_name=&level2_name={{ level2_name }}">全部</a>
+          <a class="item" href="?level1_name=本科&level2_name={{ level2_name }}">本科</a>
+          <a class="item" href="?level1_name=专科（高职）&level2_name={{ level2_name }}">专科（高职）</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <div class="ui horizontal middle aligned selection relaxed link list" id="le2">
           <div class="item"><h4 style="color: black;">专业类别</h4></div>
-          <a class="active item" href="#">全部</a>      
-          <a class="item" href="#">哲学</a>
-          <a class="item" href="#">经济学</a>
-          <a class="item" href="#">法学</a>
-          <a class="item" href="#">教育学</a>
-          <a class="item" href="#">文学</a>
-          <a class="item" href="#">历史学</a>
-          <a class="item" href="#">理学</a>
-          <a class="item" href="#">工学</a>
-          <a class="item" href="#">农学</a>
-          <a class="item" href="#">医学</a>
-          <a class="item" href="#">管理学</a>
-          <a class="item" href="#">艺术学</a>
+          <a class="active item" href="?level1_name={{ level1_name }}&level2_name=">全部</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=哲学">哲学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=经济学">经济学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=法学">法学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=教育学">教育学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=文学">文学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=历史学">历史学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=理学">理学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=工学">工学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=农学">农学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=医学">医学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=管理学">管理学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=艺术学">艺术学</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=农林牧渔大类">农林牧渔大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=资源环境与安全大类">资源环境与安全大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=能源动力与材料大类">能源动力与材料大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=土木建筑大类">土木建筑大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=水利大类">水利大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=装备制造大类">装备制造大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=生物与化工大类">生物与化工大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=食品药品与粮食大类">食品药品与粮食大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=交通运输大类">交通运输大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=电子信息大类">电子信息大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=医药卫生大类">医药卫生大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=财经商贸大类">财经商贸大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=旅游大类">旅游大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=文化艺术大类">文化艺术大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=新闻传播大类">新闻传播大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=教育与体育大类">教育与体育大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=公安与司法大类">公安与司法大类</a>
+          <a class="item" href="?level1_name={{ level1_name }}&level2_name=公共管理与服务大类">公共管理与服务大类</a>
         </div>
       </div>
     </div>
@@ -108,54 +141,56 @@
 
     <div class="row">
       <div class="column">
+        <div class="ui mini horizontal statistic">
+          <div class="label">
+            共找到专业
+          </div>
+          <div class="value">
+            {{ count }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
         <table class="ui large single line selectable black celled table">
           <thead class="center aligned">
             <tr>
               <th>专业类别</th>
               <th>专业名称</th>
+              <th>热度排名</th>
+              <th>层次</th>
               <th>开设院校</th>
             </tr>
           </thead>
           <tbody class="center aligned">
+          {% for i in specialtyinfo1 %}
             <tr >
-              <td>哲学类</td>
-              <td><a href="{% url 'specialty_detail' %}"><h4 class="ui header">哲学</h4></a></td>
-              <td><a href="{% url 'specialty_school' %}">点击查看</a></td>                                                          
+              <td>{{ i.level3_name }}</td>
+              <td><a href="{% url 'specialty_detail' %}"><h4 class="ui header">{{ i.sp_name }}</h4></a></td>
+              <td>理科类1</td>
+              <td>{{ i.level1_name }}</td>
+              <td><a href="{% url 'specialty_school' %}"><h4 class="ui header">点击查看</h4></a></td>
             </tr>
-            <tr >
-              <td>哲学类</td>
-              <td><a href="{% url 'specialty_detail' %}"><h4 class="ui header">哲学</h4></a></td>
-              <td><a href="{% url 'specialty_school' %}">点击查看</a></td>                                                          
-            </tr>
-            <tr >
-              <td>哲学类</td>
-              <td><a href="{% url 'specialty_detail' %}"><h4 class="ui header">哲学</h4></a></td>
-              <td><a href="{% url 'specialty_school' %}">点击查看</a></td>                                                          
-            </tr>
-            <tr >
-              <td>哲学类</td>
-              <td><a href="{% url 'specialty_detail' %}"><h4 class="ui header">哲学</h4></a></td>
-              <td><a href="{% url 'specialty_school' %}">点击查看</a></td>                                                          
-            </tr>
-            <tr >
-              <td>哲学类</td>
-              <td><a href="{% url 'specialty_detail' %}"><h4 class="ui header">哲学</h4></a></td>
-              <td><a href="{% url 'specialty_school' %}">点击查看</a></td>                                                          
-            </tr>                                              
+          {% endfor %}
           </tbody>
           <tfoot>
-            <tr><th colspan="3">
+            <tr><th colspan="5">
               <div class="ui right floated pagination menu">
-                <a class="icon item">
+                  {% if specialtyinfo1.has_previous %}
+                <a class="icon item" href="?level1_name={{ level1_name }}&level2_name={{ level2_name }}&page={{ specialtyinfo1.previous_page_number }}">
                   <i class="left chevron icon"></i>
                 </a>
-                <a class="item">1</a>
-                <a class="item">2</a>
-                <a class="item">3</a>
-                <a class="item">4</a>
-                <a class="icon item">
+                  {% endif %}
+                <a class="item">{{ specialtyinfo1.number }}</a>
+                <a class="item">...</a>
+                <a class="item">{{ specialtyinfo1.paginator.num_pages }}</a>
+                   {% if specialtyinfo1.has_next %}
+                <a class="icon item" href="?level1_name={{ level1_name }}&level2_name={{ level2_name }}&page={{ specialtyinfo1.next_page_number }}">
                   <i class="right chevron icon"></i>
                 </a>
+                   {% endif %}
               </div>
             </th>
           </tr></tfoot>
@@ -188,19 +223,23 @@
     </div>
   </div>
   <script>
-    $(document)
-      .ready(function() {
-        $('.ui.link.list a.item')
-          .on('click', function() {
-            $(this)
-              .addClass('active')
-              .siblings()
-              .removeClass('active')
-            ;
-          })
-        ;
-      })
-    ;
+    $(document).ready(function(){
+        var url = window.location.search.split("&page")[0];
+            $("#le1 a").each(function(){
+                $this = $(this);
+                if($this[0].href==window.location.origin+window.location.pathname+url){
+                    $("#le1 a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+            $("#le2 a").each(function(){
+                $this = $(this);
+                if($this[0].href==window.location.origin+window.location.pathname+url){
+                    $("#le2 a").removeClass("active");
+                    $(this).addClass("active");  //active表示被选中效果的类名
+                }
+            });
+        });
   </script>
 </body>
 
