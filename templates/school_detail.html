@@ -9,7 +9,7 @@
 
   <!-- Site Properties -->
   <title>高考通 - 规划你的未来 | 全国大学排名_大学专业介绍_高考志愿填报_学业百科</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css' %}">
 
   <style type="text/css">
   body {
@@ -19,16 +19,36 @@
     padding-top: 3em;
     padding-bottom: 1em;
   }
+  .ui.horizontal.middle.aligned.selection.relaxed.link.list a.item {
+    color: rgb(0,0,0);
+  }
+  .ui.secondary.pointing.menu {
+    margin-top: 1em;
+  }
   .ui.inverted.menu .teal.active.item, .ui.inverted.teal.menu {
     background-color: #000000ab;
   } 
+  #im {
+    margin-top: 4.6em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .ui.center.aligned.header {
+    background-color: #ededed;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .ui.relaxed.list div.item {
+    margin-top: 2em;
+    padding-left: 1em;
+  }
   </style>
   <script src="{% static 'js/jquery.min.js' %}"></script>
   <script src="{% static 'js/semantic.min.js' %}"></script>
 </head>
 
 <body>
-  
+
   <div class="ui teal inverted borderless large top fixed menu">
     <div class="ui container">
       <div class="item">
@@ -41,8 +61,93 @@
     </div>
   </div>
 
-  <div class="ui grid container">
-    
+  <div class="row" style="background-color: #e2e2e2">
+    <div class="column">
+      <div class="ui container" id="im">   
+        <h1 class="ui image header">
+        <img src="{% static 'images/307.jpg' %}" class="ui circular image">
+        <div class="content"><a class="ui header" href="{% url 'school_detail' scid %}"><h2>{{ schoolinfo1.school_name }}</h2></a>
+          <div class="sub header"><h4>{{ schoolinfo1.province_name }}</h4></div>
+        </div>
+        </h1>                 
+      </div>
+    </div>
+  </div>
+
+  <div class="ui container">
+    <div class="ui huge grey secondary pointing menu">
+      <a class="active item" href="{% url 'school_detail' scid %}">
+        学校主页
+      </a>
+      <a class="item" href="#">
+        高考招生
+      </a>
+    </div>    
+  </div>
+
+  <div class="ui grid container" style="padding-top: 1em; margin-bottom: 4em;">
+    <div class="row">
+      <div class="ten wide column">
+        <div class="ui raised segment">
+          <h3 class="ui center aligned header">
+            院校概览
+          </h3>
+          <div class="ui attached">
+            <img class="ui fluid image" src="{% static 'images/ll.jpg' %}">
+            <div class="content">
+              <h4 style="background-color: #f3f3f3;padding-top: 1em;padding-bottom: 1em;">简介</h4>
+            </div>
+            <div class="description" style="padding-bottom: 2em;">
+              <p>{{ schoolinfo1.school_intro }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="six wide column">
+        <div class="ui raised segment">
+          <h3 class="ui center aligned header">
+            基本信息
+          </h3>
+          <div class="ui relaxed list" style="margin-bottom: 3em;">
+            <div class="item">
+              <i class="university icon"></i>
+              <div class="content">
+                <div class="header">类型：</div>
+                <div class="description">{{ school_type }}  {{ schoolinfo1.type_name }}</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="tag icon"></i>
+              <div class="content">
+                <div class="header">特色：</div>
+                <div class="description"> {{ f211 }} {{ f985 }} {{ central }} {{ department }} {{ admissions }} {{ dual_class }} {{ schoolinfo1.dual_class_name }}</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="map marker alternate icon"></i>
+              <div class="content">
+                <div class="header">地址：</div>
+                <div class="description">{{ schoolinfo1.city_name }} {{ schoolinfo1.county_name }}</div>
+              </div>
+            </div>                       
+          </div>                       
+        </div>
+        <div class="ui raised segment" style="margin-top: 3em;">
+          <h3 class="ui center aligned header">
+            优势专业
+          </h3>
+          <div class="ui attached">
+            <div class="item" style="padding-bottom: 2em;">
+              <div class="content">
+                <div class="description">
+                  <p>{{ schoolinfo1.subject }}</p>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="ui inverted vertical footer segment">
@@ -68,9 +173,6 @@
     </div>
   </div>
 
-<script>
-
-</script>
 </body>
 
 </html>

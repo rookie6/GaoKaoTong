@@ -9,7 +9,7 @@
 
   <!-- Site Properties -->
   <title>高考通 - 规划你的未来 | 全国大学排名_大学专业介绍_高考志愿填报_学业百科</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css' %}">
 
   <style type="text/css">
   body {
@@ -23,11 +23,25 @@
     color: rgb(0,0,0);
   }
   .ui.secondary.pointing.menu {
-    margin-top: 5em;
+    margin-top: 1em;
   }
   .ui.inverted.menu .teal.active.item, .ui.inverted.teal.menu {
     background-color: #000000ab;
   } 
+  #im {
+    margin-top: 4.6em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+  .ui.center.aligned.header {
+    background-color: #ededed;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .ui.relaxed.list div.item {
+    margin-top: 2em;
+    padding-left: 1em;
+  }
   </style>
   <script src="{% static 'js/jquery.min.js' %}"></script>
   <script src="{% static 'js/semantic.min.js' %}"></script>
@@ -47,87 +61,98 @@
     </div>
   </div>
 
-  <div class="ui container">
-    <div class="ui huge grey secondary pointing menu">
-      <a class="active item" href="{% url 'specialty' %}">
-        专业大全
-      </a>
-      <a class="item" href="{% url 'specialty_school' %}">
-        根据专业找大学
-      </a>
-    </div>    
+  <div class="row" style="background-color: #e2e2e2">
+    <div class="column">
+      <div class="ui container" id="im">   
+        <div class="content"><a class="ui header" href="{% url 'specialty_detail' spid %}"><h2 style="color: #4c6471;">[{{ specialtyinfo1.level1_name }}]{{ specialtyinfo1.sp_name }}</h2></a>
+        </div>
+        </h1>                 
+      </div>
+    </div>
   </div>
 
-  <div class="ui grid container" style="padding-top: 1em;">
-    <div class="eight wide column">
-      <h3 class="ui top attached center aligned header">
-        基本信息
-      </h3>
-      <div class="ui attached segment">
-        <p></p>
-      </div>
-    </div>
-    <div class="eight wide column">
-      <h3 class="ui top attached center aligned header">
-        专业详解
-      </h3>
-      <div class="ui attached segment">
-        <div class="ui items">
-          <div class="item">
-            <div class="content">
-              <a class="header">是什么</a>
-              <div class="meta">
-                <span>哲学研习中西现代哲学、中西哲学史、伦理学、逻辑学、人类学等方面的基本理论和知识，以世界本原为探究对象，研究自然、社会和人类最普遍的问题，探索人的价值观、人生观和世界观的问题。例如：世界的本质是什么，人类应该怎样活着，人类如何看待死亡等。该专业侧重于学术方面，选择需谨慎。 关键词：马克思主义 三观 逻辑 伦理</span>
-              </div>
-              <div class="description">
-                <p></p>
-              </div>
-              <div class="extra">
-                额外的细节
+  <div class="ui grid container" style="padding-top: 3em; margin-bottom: 4em;">
+    <div class="row">
+      <div class="nine wide column">
+        <h3 class="ui header" style="border-left: solid 0.5em #428bca;padding-left: 1em;">
+          简介
+        </h3>              
+        <div class="ui raised segment" style="padding-bottom: 3em;">
+          <h5 class="ui center aligned header">
+            专业详解
+          </h5>          
+          <div class="ui relaxed list">
+            <div class="item">
+              <i class="map marker icon"></i>
+              <div class="content">
+                <div class="header">是什么</div>
+                <div class="description">{{ specialtyinfo1.is_what }}</div>
               </div>
             </div>
-          </div>
-          <div class="item">
-            <div class="content">
-              <a class="header">标题</a>
-              <div class="meta">
-                <span>描述</span>
-              </div>
-              <div class="description">
-                <p></p>
-              </div>
-              <div class="extra">
-                额外的细节
+            <div class="item">
+              <i class="map marker icon"></i>
+              <div class="content">
+                <div class="header">做什么</div>
+                <div class="description">{{ specialtyinfo1.do_what }}</div>
               </div>
             </div>
+            <div class="item">
+              <i class="map marker icon"></i>
+              <div class="content">
+                <div class="header">学什么</div>
+                <div class="description">{{ specialtyinfo1.learn_what }}</div>
+              </div>
+            </div>            
           </div>
-        </div>
+        </div>                     
+      </div>
+      <div class="seven wide column">
+        <h3 class="ui header" style="border-left: solid 0.5em #428bca;padding-left: 1em;">
+          基本信息
+        </h3>  
+        <div class="ui raised segment" style="padding-bottom: 4em;">
+          <h5 class="ui center aligned header">
+            所属分类
+          </h5>
+          <div class="ui horizontal relaxed list">
+            <div class="item" style="margin-left: 1em !important;padding-left: 1em !important;">
+              <i class="tag icon"></i>
+              学科门类：{{ specialtyinfo1.level2_name }}
+            </div> 
+            <div class="item">
+              <i class="tag icon"></i>
+              专业类：{{ specialtyinfo1.level3_name }}
+            </div>    
+            <div class="item">
+              <i class="tag icon"></i>
+              授予学位：{{ specialtyinfo1.degree }}
+            </div>
+            <div class="item">
+              <i class="tag icon"></i>
+              修业年限：{{ specialtyinfo1.limit_year }}
+            </div>  
+            <div class="item">
+              <i class="tag icon"></i>
+              选考（学科）建议：{{ specialtyinfo1.sel_adv }}
+            </div>                                         
+          </div>                       
+        </div>         
+      </div>      
+      <div class="nine wide column" style="margin-top: 4em;"> 
+        <h3 class="ui header" style="border-left: solid 0.5em #428bca;padding-left: 1em;">
+          就业行业
+        </h3>        
+        <div class="ui raised segment" style="padding-bottom: 3em;">
+          <h5 class="ui center aligned header">
+            发展前景
+          </h5> 
+          <i class="chevron circle right icon"></i>         
+          <div class="content" style="padding-left: 2em;">
+            <p>{{ specialtyinfo1.job }}</p>
+          </div>                     
+        </div>        
       </div>
     </div>
-    <div class="eight wide column">
-      <h3 class="ui top attached center aligned header">
-        就业行业分布
-      </h3>
-      <div class="ui attached segment">
-        <p></p>
-      </div>
-    </div>
-    <div class="eight wide column">
-      <h3 class="ui top attached center aligned header">
-        就业岗位分布
-      </h3>
-      <div class="ui attached segment">
-        <p></p>
-      </div>
-    </div> 
-    <div class="eight wide column">
-      <h3 class="ui top attached center aligned header">
-        就业地区分布
-      </h3>
-      <div class="ui attached segment">
-        <p></p>
-      </div>
-    </div>  
   </div>
 
   <div class="ui inverted vertical footer segment">

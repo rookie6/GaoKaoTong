@@ -197,7 +197,7 @@
               <td>
                 <h2 class="ui image header">
                 <img src="{% static 'images/307.jpg' %}" class="ui massive rounded image">
-                <div class="content"><a class="ui header" href=""><h3>{{ i.school_name }}</h3></a>
+                <div class="content"><a class="ui header" href="{% url 'school_detail' i.id %}"><h3>{{ i.school_name }}</h3></a>
                   <div class="sub header"><h4>{{ i.province_name }}</h4></div>
                 </div>
                 </h2>

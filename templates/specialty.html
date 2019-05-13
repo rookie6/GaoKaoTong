@@ -168,7 +168,7 @@
           {% for i in specialtyinfo1 %}
             <tr >
               <td>{{ i.level3_name }}</td>
-              <td><a href="{% url 'specialty_detail' %}"><h4 class="ui header">{{ i.sp_name }}</h4></a></td>
+              <td><a href="{% url 'specialty_detail' i.id %}"><h4 class="ui header">{{ i.sp_name }}</h4></a></td>
               <td>理科类1</td>
               <td>{{ i.level1_name }}</td>
               <td><a href="{% url 'specialty_school' %}"><h4 class="ui header">点击查看</h4></a></td>
