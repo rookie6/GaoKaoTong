@@ -97,7 +97,7 @@
             <div class="content">
               <h4 style="background-color: #f3f3f3;padding-top: 1em;padding-bottom: 1em;">简介</h4>
             </div>
-            <div class="description" style="padding-bottom: 2em;">
+            <div class="description" style="padding-bottom: 2em;" id="goodIntroduction">
               <p>{{ schoolinfo1.school_intro }}</p>
             </div>
           </div>
@@ -173,6 +173,25 @@
     </div>
   </div>
 
+<script>
+  var str = $("#goodIntroduction").text();
+  var tempt = str;
+  coverup();
+
+  function coverup() {
+      if (str.length > 220) {
+          $("#goodIntroduction").text(tempt.slice(0, 220) + "...");
+      }
+      var readmore = "<a onclick='showmore()'  style='color: orange;'>查看更多↓</a>"
+      $("#goodIntroduction").append(readmore);
+  }
+
+  function showmore() {
+      $("#goodIntroduction").text(str);
+      var readmore = "<a onclick='coverup()'  style='color: orange;'>收起↑</a>"
+      $("#goodIntroduction").append(readmore);
+  }
+</script>
 </body>
 
 </html>
