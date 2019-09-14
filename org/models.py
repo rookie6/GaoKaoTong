@@ -115,7 +115,7 @@ class LineSpecialty(models.Model):
     """
     专业录取分数线
     """
-    sp_name = models.CharField(max_length=30, verbose_name='专业名称')
+    sp_name = models.CharField(max_length=80, verbose_name='专业名称')
     school_name = models.CharField(max_length=30, null=True, verbose_name='学校名称')
     level1_name = models.CharField(max_length=30, null=True, verbose_name='专业层次')
     level2_name = models.CharField(max_length=30, null=True, verbose_name='专业门类')
