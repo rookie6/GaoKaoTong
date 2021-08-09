@@ -102,7 +102,7 @@ pyquery==1.4.0
 pytesseract==0.2.5
 python-dateutil==2.7.3
 pytz==2018.5
-pywin32==223
+pywin32==301
 pywinpty==0.5.4
 PyYAML==5.1
 pyzmq==17.1.0
