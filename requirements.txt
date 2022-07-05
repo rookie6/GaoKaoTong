@@ -83,7 +83,7 @@ prometheus-client==0.3.1
 prompt-toolkit==1.0.15
 pyasn1==0.4.4
 pyasn1-modules==0.2.2
-pycares==2.3.0
+pycares==4.2.0
 pycodestyle==2.5.0
 pycparser==2.18
 PyDispatcher==2.0.5
